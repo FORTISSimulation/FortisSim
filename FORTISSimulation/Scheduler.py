@@ -67,7 +67,6 @@ class Scheduler:
             #         print("Started mining block at ",currentTime, " finishing at: ", blockTime)
 
     ##### Schedule a private block creation event and add it to the event list #####
-    ##OSMAN
     def create_private_block_event(miner,currentTime):
         if miner.hashPower > 0:
             # blockTime = currentTime + Scheduler.solve_PoW(miner)
