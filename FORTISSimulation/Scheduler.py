@@ -119,10 +119,10 @@ class Scheduler:
                     receive_block_time = event.time + Scheduler.receive_block_time(bockSize) # draw time for node i to receive the block
                     
                 elif recipient.type=="honest" and (p.NODES[miner].type=="oracle" or p.NODES[miner].type=="bold"):
-                    receive_block_time = event.time + Scheduler.receive_block_time(bockSize)
+                    receive_block_time = event.time #+ Scheduler.receive_block_time(bockSize)
                  
                 elif (recipient.type=="oracle" or recipient.type=="bold") and p.NODES[miner].type=="honest":
-                    receive_block_time = event.time + Scheduler.receive_block_time(bockSize)
+                    receive_block_time = event.time #+ Scheduler.receive_block_time(bockSize)
                 
                 if receive_block_time <= p.simTime:
                     block = Block(blockDepth,blockId,blockPrev,blockTimestamp,miner,blockTrans,bockSize,blockUncles)
@@ -146,7 +146,7 @@ class Scheduler:
             for recipient in p.NODES:
                 if recipient.id != miner.id:
                     #receive_block_time = block.timestamp + Scheduler.receive_block_time() # draw time for node i to receive the block
-                    receive_block_time = block.timestamp   + Scheduler.receive_block_time(bockSize)                 
+                    receive_block_time = block.timestamp   #+ Scheduler.receive_block_time(bockSize)                 
                     if receive_block_time <= p.simTime:
                         block = Block(blockDepth,blockId,blockPrev,blockTimestamp,miner.id,blockTrans,bockSize,[])
                         e = Event("receive_block", recipient.id, receive_block_time, block)

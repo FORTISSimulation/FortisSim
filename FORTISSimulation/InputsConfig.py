@@ -2,7 +2,7 @@ from Node import Node
 #from Attacker import Attacker
 import random
 import csv
-
+import sys
 class InputsConfig(object):
     #################################################################### simulation parameters that needs to be set up #####################################################################
 
@@ -36,10 +36,10 @@ class InputsConfig(object):
     #     hashPower =  random.uniform(0,30) # generate a random hash power for node i between 0% and 30%
     #     NODES += [Node(i,hashPower)]bold
     # NODES += [Node(Nn-1,20,"bold")]
-    alpha_attacker=40
+    alpha_attacker=10 #10% for example
     ######### if you want to configure the hash power of each node as you prefer use this instead of randomly assign hash powers to nodes ############
     NODES = [
-    Node(0,alpha_attacker,"oracle"),
+    Node(0,alpha_attacker,"bold"),
         Node(1,(100-alpha_attacker)*0.21),
         Node(2,(100-alpha_attacker)*0.18),
         Node(3,(100-alpha_attacker)*0.15),
@@ -54,7 +54,7 @@ class InputsConfig(object):
     Runs=5000# Number of simulation runs
 
     ##### Consensus parameters #####
-    ConsensusType = "FP" #FP/FORTIS/None to specify the type of consensus protocol to be followed by a miner in case of competing branches
+    ConsensusType = "FORTIS" #FP/FORTIS/None to specify the type of consensus protocol to be followed by a miner in case of competing branches
     fortis_prob = 0.630
 
     ##### Results #######
